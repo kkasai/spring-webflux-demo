@@ -39,11 +39,41 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <build.number>000</build.number>
+        <commit.hash>local-build</commit.hash>
+        <build.user>local-build</build.user>
+        <build.repo>local-build</build.repo>
+        <circle.workflow.guid>local-build</circle.workflow.guid>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>0.9.13</version>
+                <configuration>
+                    <to>
+                        <image>registry.hub.docker.com/kkasai/spring-webflux-demo:${version}-b${build.number}</image>
+                    </to>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-Dbuild.number=${build.number}</jvmFlag>
+                            <jvmFlag>-Dcommit.hash=${commit.hash}</jvmFlag>
+                            <jvmFlag>-Dbuild.user=${build.user}</jvmFlag>
+                            <jvmFlag>-Dbuild.repo=${build.repo}</jvmFlag>
+                            <jvmFlag>-Dcircle.workflow.guid=${circle.workflow.guid}</jvmFlag>
+                        </jvmFlags>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                    </container>
+                </configuration>
             </plugin>
         </plugins>
     </build>
