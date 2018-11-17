@@ -58,6 +58,9 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>0.10.0</version>
                 <configuration>
+                    <from>
+                        <image>openjdk:11-jdk-slim</image>
+                    </from>
                     <to>
                         <image>registry.hub.docker.com/kkasai/spring-webflux-demo:latest</image>
                     </to>
