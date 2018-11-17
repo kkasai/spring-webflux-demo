@@ -59,7 +59,7 @@
                 <version>0.9.13</version>
                 <configuration>
                     <to>
-                        <image>registry.hub.docker.com/kkasai/spring-webflux-demo:${version}-b${build.number}</image>
+                        <image>registry.hub.docker.com/kkasai/spring-webflux-demo:latest</image>
                     </to>
                     <container>
                         <jvmFlags>
